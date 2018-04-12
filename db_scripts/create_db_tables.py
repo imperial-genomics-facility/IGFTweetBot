@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-from db_tables import Base
+from db_scripts.db_tables import Base
 from sqlalchemy import create_engine
 
 def create_db_tables_in_sqlite(db_name=':memory:'):

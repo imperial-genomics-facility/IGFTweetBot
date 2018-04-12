@@ -1,7 +1,9 @@
 #!/usr/bin/env python
+import os
 import pandas as pd
 from sqlalchemy import create_engine
-from db_tables import Base,Tweet_message
+from sqlalchemy.orm import sessionmaker
+from db_scripts.db_tables import Base,Tweet_message
 
 def insert_dataframe_row(session, table, df):
   '''

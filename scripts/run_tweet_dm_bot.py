@@ -28,4 +28,5 @@ try:
 except KeyboardInterrupt:
     print('stopped bot')
 except Exception as e:
+  raise
   print('Error: {0}'.format(e))

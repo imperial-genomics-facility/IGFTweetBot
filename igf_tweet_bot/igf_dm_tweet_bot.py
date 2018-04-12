@@ -1,7 +1,8 @@
 #!/usr/bin/env python
-import twitter, json,re,copy,string
+import twitter,json,re,copy,string,os
 from sqlalchemy import create_engine
-from db_tables import Base,Tweet_message
+from sqlalchemy.orm import sessionmaker
+from db_scripts.db_tables import Base,Tweet_message
 from db_scripts.create_db_tables import create_db_tables_in_sqlite
 from db_scripts.data_load_to_db import load_data_to_sqlite_db
 
@@ -71,10 +72,10 @@ class IgfDmTweetBot:
     An internal method for creating a sqlalchemy database session
     '''
     try:
-      if db_name != ':memory:' and not os.path.exists(db_name):
-        raise IOError('SQLite database {0} not found'.format(db_name))
+      if self.db_name != ':memory:' and not os.path.exists(self.db_name):
+        raise IOError('SQLite database {0} not found'.format(self.db_name))
 
-      db_url='sqlite:///{0}'.format(db_name)
+      db_url='sqlite:///{0}'.format(self.db_name)
       engine=create_engine(db_url)
       Session=sessionmaker(bind=engine)
       session=Session()
@@ -155,5 +156,4 @@ class IgfDmTweetBot:
               data=json.dumps(post_data)                                                 # dump data to json
               api._RequestUrl(url, 'POST', data=data)                                    # post data to Twitter
     except:
-      session.close()
       raise
