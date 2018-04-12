@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import argparse
 from db_scripts.data_load_to_db import load_data_to_sqlite_db
 
