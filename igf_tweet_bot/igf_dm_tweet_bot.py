@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import twitter, json,re,copy,strings
+import twitter, json,re,copy,string
 from sqlalchemy import create_engine
 from db_tables import Base,Tweet_message
 from db_scripts.create_db_tables import create_db_tables_in_sqlite
