@@ -80,9 +80,9 @@ A docker image is available for running this tweet bot.
 
 #### Run tweetbot from docker image
 <pre><code>docker run -d \
--v /host_dir/igf_bot_conf:/home/vmuser/igf_bot_conf \
+-v /host_dir/igf_bot_conf:/home/vmuser/igf_bot_conf:z \
 avikdatta/tweetbotdockerimage python /home/vmuser/IGFTweetBot/scripts/run_tweet_dm_bot.py \
-  -d /home/vmuser/igf_bot_conf/tweetbot_db.sqlite \
+  -d /home/vmuser/tweetbot_db.sqlite \
   -f /home/vmuser/igf_bot_conf/quick_reply.json  \
   -m /home/vmuser/igf_bot_conf/reply_messages.json  \
   -t /home/vmuser/igf_bot_conf/twitter_api_token.json \
